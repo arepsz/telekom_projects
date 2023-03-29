@@ -1,5 +1,6 @@
 # telekom_projects
-All projects for the telecommunication networks subject at ELTE-IK.
+Four of the five projects for the telecommunication networks subject (ELTE IK).
+The files for the last project are not on the test site, even though I'm pretty sure I submitted it, but it is what it is.
 
 Folders:
 ### Client
