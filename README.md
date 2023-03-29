@@ -40,3 +40,33 @@ b'elso\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00S\x00\x00\x00\x01'
 b'\x00\x00\xadB\x00X'
 b'J\x00\x00\x00masodik\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcd\xcc\xbbB'
 b'Z\x00\x00\x00i\x00\x00\x00harmadik\x00\x00\x00\x00\x00\x00\x00\x00'
+
+### AFK8S6_barkoba
+
+Let's make a question / answer application. The server should be able to serve several clients. The server should choose an integer between 1..100 at random. Clients try to guess the number.
+
+    The client uses a logarithmic search to find the intended number. The client should NOT work from the standard input.
+    If a client has guessed the number, the server sends the message "End" (V) to every new client message, after which the clients exit.
+    Upon receiving Win (Y), Lose (K) and End (V) messages, the client disconnects and terminates the connection. In case of Yes (I) / No (N), it continue the questioning.
+    Use TCP for communication!
+    The server uses SELECT funtion to serve multiple clients!!!!!
+    If the game is over, the server send End (V) for every question!
+
+Message format:
+
+    Form Client: bytes format one char, one integer. (struct) Do not use the byte order manipulation operator! ('!')
+        The char is: <: lower then, >: bigger then, =: equals
+        ex: ('>',10) //the number is bigger then 10
+    From Server: same bytes format , but the number is irrelevant (struct)
+        The char is: I: Yes, N: No, K: Quit, Y: Win, V: End
+        ex: ('V',0)
+
+
+Parameters of the script:
+
+    python3 client.py < hostname > < port number >
+        ex: python3 client.py localhost 10000
+    python3 server.py < hostname > < port number >
+        ex: python3 server.py localhost 10000
+
+### NetCopy
